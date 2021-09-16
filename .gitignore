@@ -3,9 +3,9 @@ node_modules
 /dist
 
 public/books/*
+public/webviewer/*
 
 *.exe
-*.bat
 
 # local env files
 .env.local

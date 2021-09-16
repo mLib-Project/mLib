@@ -9,7 +9,7 @@ const routes: RouteRecordRaw[] = [
     component: Home,
   },
   {
-    path: "/books/:id",
+    path: "/:id",
     name: "PDF",
     component: PDF,
     props: true,

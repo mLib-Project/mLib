@@ -1,23 +1,22 @@
 <template>
-  <object :data="'/books/' + id + '.pdf'" class="pdf">
-    <p>Oops! Your browser doesn't support PDFs!</p>
-    <p><a :href="'/books/' + id + '.pdf'">Download Instead</a></p>
-  </object>
+  <WebViewer :initialDoc="'/books/' + id + '.pdf'"/>
 </template>
 
 <script lang="ts">
+import WebViewer from "@/components/WebViewer.vue";
 import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "Home",
   props: ["id"],
-  components: {},
+  components: {WebViewer},
 });
 </script>
 
 <style lang="scss" scoped>
 .pdf {
-  width: 100vw;
   height: 100vh;
+  width:100%; 
+  border: none;
 }
 </style>

@@ -2,7 +2,7 @@
   <div class="cont">
     <div v-for="group in Object.keys(books)" :key="group" :group="group" class="group">
       <div class="groupname">{{group}}</div>
-      <router-link :to="'/books/' + item.ID" v-for="item in books[group]" :key="item" class="item">
+      <router-link :to="item.ID" v-for="item in books[group]" :key="item" class="item" :style="'background: #' + item.Color">
         {{item.Name}}
         <div class="author">{{item.Author}}</div>
       </router-link>
@@ -28,7 +28,6 @@ export default defineComponent({
 <style lang="scss" scoped>
 .cont {
   width: 100vw;
-  height: 100vh;
   background: #ebebeb;
 }
 
@@ -47,10 +46,11 @@ export default defineComponent({
 .item {
   display: block;
   padding: 10px;
-  margin: 10px;
+  margin: 10px 0;
   border-radius: 10px;
   background: darkslategray;
   width: 500px;
+  max-width: 85vw;
   text-align: center;
   font-size: 20px;
   color: #ebebeb;
