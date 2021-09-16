@@ -2,10 +2,10 @@
 node_modules
 /dist
 
-.exe
-.bat
-
 public/books/*
+
+*.exe
+*.bat
 
 # local env files
 .env.local
