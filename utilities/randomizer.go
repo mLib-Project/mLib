@@ -20,6 +20,7 @@ func main() {
 		x := rand.Intn(int(max-min)) - int(min)
 		if x > int(min) && x < int(max) {
 			fmt.Println(x)
+			fmt.Println("")
 			i++
 		}
 	}
