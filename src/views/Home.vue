@@ -1,5 +1,7 @@
 <template>
   <div class="cont">
+    <Logo/>
+    <Warning/>
     <div v-for="group in Object.keys(books)" :key="group" :group="group" class="group">
       <div class="groupname">{{group}}</div>
       <router-link :to="item.ID" v-for="item in books[group]" :key="item" class="item" :style="'background: #' + item.Color">
@@ -7,21 +9,28 @@
         <div class="author">{{item.Author}}</div>
       </router-link>
     </div>
+    <Law/>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 import { books } from "../data/books";
+import Logo from '../components/Logo.vue'
+import Warning from '../components/Warning.vue'
+import Law from '../components/Law.vue'
 
 export default defineComponent({
   name: "Home",
-  components: {},
+  components: { Logo, Warning, Law },
   data() {
     return {
       books,
     };
   },
+  mounted () {
+    document.title = 'mLib'
+  }
 });
 </script>
 
@@ -41,6 +50,7 @@ export default defineComponent({
 .groupname {
   font-size: 48px;
   font-weight: 500;
+  text-align: center;
 }
 
 .item {

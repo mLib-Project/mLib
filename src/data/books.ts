@@ -1,6 +1,8 @@
 /* eslint-disable */
 
-export const books: any = {
+import { Library } from './types'
+
+export const books: Library = {
   Fizyka: [
     {
       Name: 'Fizyka I',

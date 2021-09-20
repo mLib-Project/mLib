@@ -1,0 +1,52 @@
+{
+    "Books": [
+        {
+            "Name": "Fizyka I",
+            "Source": "https://openstax.pl/"
+        },
+        {
+            "Name": "Fizyka II",
+            "Source": "https://openstax.pl/"
+        },
+        {
+            "Name": "Fizyka III",
+            "Source": "https://openstax.pl/"
+        },
+        {
+            "Name": "Podstawy Fizyki",
+            "Source": "https://docer.pl/doc/x1exccc"
+        },
+        {
+            "Name": "Fizyka ciała stałego",
+            "Source": "https://docer.pl/doc/x0xneve"
+        },
+        {
+            "Name": "Matematyka",
+            "Source": "https://agh.edu.pl/"
+        },
+        {
+            "Name": "Matematyka",
+            "Source": "https://kul.pl/"
+        },
+        {
+            "Name": "Wstęp do matematyki",
+            "Source": "https://docer.pl/doc/xs1v0nc"
+        },
+        {
+            "Name": "Algebra liniowa I - Twierdzenia",
+            "Source": "https://docer.pl/doc/nsxvssv"
+        },
+        {
+            "Name": "Algebra liniowa I - Zadania",
+            "Source": "https://docer.pl/doc/n0x0n1s"
+        },
+        {
+            "Name": "Algebra liniowa II - Twierdzenia",
+            "Source": "https://docer.pl/esvse"
+        },
+        {
+            "Name": "Algebra liniowa II - Zadania",
+            "Source": "https://docer.pl/esvs1"
+        }
+    ]
+}
