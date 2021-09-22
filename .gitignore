@@ -3,7 +3,7 @@ node_modules
 /dist
 
 public/books/*
-public/webviewer/*
+public/lib
 
 *.exe
 

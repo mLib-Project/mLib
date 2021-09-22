@@ -1,9 +1,10 @@
 <template>
-  <WebViewer :initialDoc="'/books/' + id + '.pdf'"/>
+  <div class="container">
+    <iframe :src="'lib/pdfjs-2.9.359-dist/web/viewer.html' + '?file=' + id + '.pdf'" class="pdf"></iframe>
+  </div>
 </template>
 
 <script lang="ts">
-import WebViewer from "@/components/WebViewer.vue";
 import { defineComponent } from "vue";
 import { books } from '../data/books'
 import { Book } from '../data/types'
@@ -11,7 +12,7 @@ import { Book } from '../data/types'
 export default defineComponent({
   name: "Home",
   props: ["id"],
-  components: {WebViewer},
+  components: {},
   data () {
     return {
       books,
@@ -27,9 +28,15 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.pdf {
+.container {
   height: 100vh;
+  width:100vw;
+}
+
+.pdf {
+  height: 100%;
   width:100%; 
   border: none;
+  padding: 0;
 }
 </style>

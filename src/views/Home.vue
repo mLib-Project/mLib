@@ -22,7 +22,11 @@ import Law from '../components/Law.vue'
 
 export default defineComponent({
   name: "Home",
-  components: { Logo, Warning, Law },
+  components: {
+    Logo,
+    Warning,
+    Law
+  },
   data() {
     return {
       books,
