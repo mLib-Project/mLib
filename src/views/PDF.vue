@@ -6,7 +6,6 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { books } from '../data/books'
 import { Book } from '../data/types'
 
 export default defineComponent({
@@ -15,21 +14,22 @@ export default defineComponent({
   components: {},
   data () {
     return {
-      books,
-      thisBook: Object.values(books).flat(1).find((element: Book) => element.ID === this.id)
+      // thisBook: Object.values(books[this.id]).flat(1).find((element: Book) => element.ID === this.id)
     }
   },
   mounted () {
-    if (this.thisBook) {
-      document.title = this.thisBook.Name
-    }
+    // if (this.thisBook) {
+    //   document.title = this.thisBook.Name
+    // }
   }
 });
 </script>
 
 <style lang="scss" scoped>
+@import '../assets/styles/main.scss';
+
 .container {
-  height: 100vh;
+  height: calc(100vh - $height);
   width:100vw;
 }
 

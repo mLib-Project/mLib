@@ -1,2 +1,0 @@
-randomizer.exe
-pause

@@ -1,11 +1,7 @@
 export interface Book {
-    Name: string,
-    Author?: string,
-    ID: string,
-    Drive?: string,
-    Color?: string
-}
-
-export interface Library {
-    [key: string]: Book[]
+    category: string,
+    subcategory: string,
+    name: string,
+    author?: string,
+    ID: string
 }

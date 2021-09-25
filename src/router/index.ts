@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Home from "../views/Home.vue";
+import Books from "../views/Books.vue";
 import PDF from "../views/PDF.vue";
 
 const routes: RouteRecordRaw[] = [
@@ -10,6 +11,12 @@ const routes: RouteRecordRaw[] = [
   },
   {
     path: "/:id",
+    name: "Books",
+    component: Books,
+    props: true,
+  },
+  {
+    path: "/books/:id",
     name: "PDF",
     component: PDF,
     props: true,

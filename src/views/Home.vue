@@ -2,20 +2,12 @@
   <div class="cont">
     <Logo/>
     <Warning/>
-    <div v-for="group in Object.keys(books)" :key="group" :group="group" class="group">
-      <div class="groupname">{{group}}</div>
-      <router-link :to="item.ID" v-for="item in books[group]" :key="item" class="item" :style="'background: #' + item.Color">
-        {{item.Name}}
-        <div class="author">{{item.Author}}</div>
-      </router-link>
-    </div>
     <Law/>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { books } from "../data/books";
 import Logo from '../components/Logo.vue'
 import Warning from '../components/Warning.vue'
 import Law from '../components/Law.vue'
@@ -26,11 +18,6 @@ export default defineComponent({
     Logo,
     Warning,
     Law
-  },
-  data() {
-    return {
-      books,
-    };
   },
   mounted () {
     document.title = 'mLib'

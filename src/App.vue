@@ -1,9 +1,26 @@
 <template>
-  <router-view />
+  <div class="allcontent">
+    <Navbar/>
+    <div>
+      <router-view />
+    </div>
+  </div>
 </template>
 
+<script lang="ts">
+import { defineComponent } from 'vue'
+import Navbar from './components/Navbar.vue'
+
+export default defineComponent({
+  components: {
+    Navbar
+  }
+})
+</script>
+
+
 <style lang="scss">
-@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import './assets/styles/main.scss';
 
 * {
   box-sizing: border-box;
@@ -11,8 +28,33 @@
 
 body {
   margin: 0;
-  overflow-X: hidden;
+  background: #ebebeb;
   font-family: "Rubik", sans-serif;
+}
+
+.allcontent {
+  position: relative;
+  overflow-X: hidden;
+}
+
+.allcontent > div {
+  margin-top:$height;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 </style>
