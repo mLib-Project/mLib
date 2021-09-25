@@ -1,12 +1,14 @@
 <template>
   <div class="container">
-    <iframe :src="'lib/pdfjs-2.9.359-dist/web/viewer.html' + '?file=' + id + '.pdf'" class="pdf"></iframe>
+    <iframe :src="'/lib/pdfjs-2.9.359-dist/web/viewer.html' + '?file=' + booksURL + id + '.pdf'" class="pdf"></iframe>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 import { Book } from '../data/types'
+import { booksURL } from '../data/static'
+import { fetchBooks } from '../scripts/methods'
 
 export default defineComponent({
   name: "Home",
@@ -14,13 +16,21 @@ export default defineComponent({
   components: {},
   data () {
     return {
-      // thisBook: Object.values(books[this.id]).flat(1).find((element: Book) => element.ID === this.id)
+      thisBook: {} as Book,
+      booksURL
     }
   },
   mounted () {
-    // if (this.thisBook) {
-    //   document.title = this.thisBook.Name
-    // }
+    this.fetchBooks().then(
+      res => {
+        const thisBook = res.find(book => book.ID === this.id)
+        if (thisBook) {
+          this.thisBook = thisBook
+        }
+      })
+  },
+  methods: {
+    fetchBooks
   }
 });
 </script>
