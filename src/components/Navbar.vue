@@ -83,11 +83,12 @@ ul {
 }
 
 li {
-    background: $main;
+    background: #307182;
     margin-top:10px;
     border-radius:5px;
     flex-basis:100%;
     height:40px;
+    box-shadow: inset 2px 2px 15px rgba(0, 42, 53, 0.245);
 }
 
 a { 
@@ -107,6 +108,9 @@ a {
 
 button:focus ~ .site-menu, .site-menu:hover {
     transform: translateX(0);
+    @media (max-width:600px) {
+      box-shadow: -15px 0 15px rgba(0, 0, 0, 0.585);
+    }
 }
 
 img {

@@ -67,6 +67,11 @@ export default defineComponent({
   padding: 10px;
   width: 600px;
   max-width: 85vw;
+  @media (max-width:950px) {
+    width:100%;
+    margin:auto;
+    padding:10px 0;
+  }
 }
 
 .groupname {
@@ -77,6 +82,10 @@ export default defineComponent({
   align-items:center;
   justify-content:flex-start;
   position: relative;
+  @media (max-width:600px) {
+    font-size:22px;
+    padding:10px 0;
+  }
 }
 
 .groupimg {
@@ -85,9 +94,14 @@ export default defineComponent({
     align-items: center;
     width:50px;
     height:50px;
+    min-width:50px;
+    min-height:50px;
     background: $main;
     border-radius:10px;
     margin:0 10px;
+    @media (max-width:600px) {
+      margin-left:0;
+    }
 }
 
 .groupimg img {
@@ -107,10 +121,16 @@ export default defineComponent({
   color: #ebebeb;
   cursor: pointer;
   text-decoration: none;
+  @media (max-width:600px) {
+    font-size:14px;
+  }
 }
 
 .author {
   font-weight: 300;
   font-size:15px;
+  @media (max-width:600px) {
+    font-size:12px;
+  }
 }
 </style>

@@ -26,20 +26,11 @@ export const toCapitalCase = (str:string):string => {
 
 export const getImgUrl = (img: string):string => {
     const pic = formatStrings(img)
-    try {
-     return require('../assets/thumbnails/' + pic + '.svg') 
-    } catch (err) {
-      console.log(err)
-      try {
-        return require('../assets/thumbnails/' + pic + '.png') 
-      } catch (err) {
-          return require('../assets/thumbnails/null.svg') 
-      }
-    }
+    return process.env.BASE_URL + 'thumbnails/' + pic + '.svg'
 }
 
 export const fetchBooks = async ():Promise<Book[]> => {
-    const res = await axios.get('http://localhost:80/api')
+    const res = await axios.get('/api')
     const books = res.data
     return books
 }
@@ -47,7 +38,7 @@ export const fetchBooks = async ():Promise<Book[]> => {
   //    let unique = [...new Set(categories)]
 
 export const fetchCategories = async () => {
-    const database = await axios.get('http://localhost:80/api')
+    const database = await axios.get('/api')
     let books = database.data
     books = books.map((book:Book) => book.category)
     const unique = [...new Set(books)]
