@@ -31,7 +31,7 @@ export const getImgUrl = (img: string):string => {
 }
 
 export const fetchBooks = async ():Promise<Book[]> => {
-    const res = await axios.get('//localhost/api')
+    const res = await axios.get('/api')
     const books = res.data
     return books
 }
@@ -39,7 +39,7 @@ export const fetchBooks = async ():Promise<Book[]> => {
 //    let unique = [...new Set(categories)]
 
 export const fetchCategories = async () => {
-    const database = await axios.get('//localhost/api')
+    const database = await axios.get('/api')
     const cat = database.data.map((book:Book) => book.category)
     const uniquecat = [...new Set(cat)]
     const fam:number[] = []
