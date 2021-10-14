@@ -8,6 +8,7 @@ export const formatStrings = (string: string): string => {
         .replaceAll('ą', 'a')
         .replaceAll('ć', 'c')
         .replaceAll('ę', 'e')
+        .replaceAll('ł', 'l')
         .replaceAll('ń', 'n')
         .replaceAll('ó', 'o')
         .replaceAll('ś', 's')
@@ -30,18 +31,25 @@ export const getImgUrl = (img: string):string => {
 }
 
 export const fetchBooks = async ():Promise<Book[]> => {
-    const res = await axios.get('/api')
+    const res = await axios.get('//localhost/api')
     const books = res.data
     return books
 }
 
-  //    let unique = [...new Set(categories)]
+//    let unique = [...new Set(categories)]
 
 export const fetchCategories = async () => {
-    const database = await axios.get('/api')
-    let books = database.data
-    books = books.map((book:Book) => book.category)
-    const unique = [...new Set(books)]
-    return unique
+    const database = await axios.get('//localhost/api')
+    const cat = database.data.map((book:Book) => book.category)
+    const uniquecat = [...new Set(cat)]
+    const fam:number[] = []
+    for (let i=0;i<uniquecat.length;i++) {
+        const newfam = database.data.find((book:Book) => book.category === uniquecat[i]).family
+        fam.push(parseInt(newfam))
+    }
+    return {
+        0: uniquecat, 
+        1: fam, 
+    }
 
 }

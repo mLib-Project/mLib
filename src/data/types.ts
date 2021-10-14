@@ -1,4 +1,5 @@
 export interface Book {
+    family:string,
     category: string,
     subcategory: string,
     name: string,

@@ -6,8 +6,18 @@
     <Hamburger />
     <div class="site-menu">
       <ul>
-        <li v-for="category in categories" :key="category">
-          <router-link :to="'/' + category.toLowerCase()">{{category}}</router-link>
+        <li 
+          v-for="(category, index) in categories[0]" 
+          :key="index"
+          :style="{
+              backgroundColor: '#' + colors[categories[1][index]]
+          }"
+        >
+          <router-link 
+            :to="'/' + category.toLowerCase()"
+          >
+            {{category}}
+          </router-link>
         </li>
       </ul>
     </div>
@@ -16,15 +26,16 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import Hamburger from './Hamburger.vue'
+import Hamburger from './navbar/Hamburger.vue'
+import { colors } from '../data/arrays'
 import { fetchCategories } from '../scripts/methods'
-import { Book } from '../data/types'
 
 export default defineComponent({
   data () {
     return {
       books: {},
-      categories:{}
+      categories:{},
+      colors
     }
   },
   components: {

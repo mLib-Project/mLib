@@ -1,51 +1,52 @@
 <template>
   <div class="cont">
-    <div v-for="group in [...new Set(books.filter(name => name.category == toCapitalCase(id)).map(book => book.subcategory))]" :key="group" :group="group" class="group">
-      <div v-if="group.length > 0" class="groupname">
-          <div class="groupimg">
-              <img :src="getImgUrl(group)">
-          </div>
-          {{group}}
-      </div>
-      <router-link 
-        :to="'/books/' + item.ID" 
-        v-for="item in books.filter(book => book.category === toCapitalCase(id) && book.subcategory === group)" 
-        :key="item" 
-        class="item"
-      >
-        {{item.name}}
-        <div class="author">
-          {{item.author}}
-        </div>
-      </router-link>
-    </div>
+    <Header
+      :book="books.find(book => book.category === toCapitalCase(id))"
+      :key="books.find(book => book.category === toCapitalCase(id))"
+    />
+    <Group 
+      v-for="group in [...new Set(
+          books
+          .filter(name => name.category == toCapitalCase(id))
+          .map(book => book.subcategory)
+        )]"
+      :key="group"
+      :family="books.filter(book => book.category === toCapitalCase(this.id) && book.subcategory === group)"
+      :group="group"
+      :books="books"
+      :category="id"
+    />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import axios from 'axios'
-import { formatStrings, toCapitalCase, getImgUrl, fetchBooks } from '../scripts/methods'
+import Header from '../components/Header.vue'
+import Group from '../components/Group.vue'
+import { toCapitalCase, fetchBooks } from '../scripts/methods'
 import { Book } from '../data/types'
+
+
 
 export default defineComponent({
   name: "Books",
   props: ["id"],
-  components: {},
+  components: {
+    Header,
+    Group
+  },
   data() {
     return {
-      books:[] as Book[],
-      subcategories:{}
-    };
+      books:[] as Book[]
+    }
   },
   methods: {
     toCapitalCase,
-    getImgUrl,
     fetchBooks
   },
   mounted () {
     this.fetchBooks().then(
-      res => {this.books = res}
+      res => this.books = res
     )
   },
   updated () {
@@ -59,78 +60,8 @@ export default defineComponent({
 
 .cont {
   width: 1000px;
-  max-width: 90vw;
+  max-width: 92vw;
   margin: 0 auto;
 }
 
-.group {
-  padding: 10px;
-  width: 600px;
-  max-width: 85vw;
-  @media (max-width:950px) {
-    width:100%;
-    margin:auto;
-    padding:10px 0;
-  }
-}
-
-.groupname {
-  font-size: 30px;
-  font-weight: 500;
-  padding:10px;
-  display:flex;
-  align-items:center;
-  justify-content:flex-start;
-  position: relative;
-  @media (max-width:600px) {
-    font-size:22px;
-    padding:10px 0;
-  }
-}
-
-.groupimg {
-    display:inline-flex;
-    justify-content: center;
-    align-items: center;
-    width:50px;
-    height:50px;
-    min-width:50px;
-    min-height:50px;
-    background: $main;
-    border-radius:10px;
-    margin:0 10px;
-    @media (max-width:600px) {
-      margin-left:0;
-    }
-}
-
-.groupimg img {
-    width:75%;
-    filter: invert(0.5) brightness(100);
-}
-
-.item {
-  display: block;
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 10px;
-  background: darkslategray;
-  width:100%;
-  text-align: center;
-  font-size: 20px;
-  color: #ebebeb;
-  cursor: pointer;
-  text-decoration: none;
-  @media (max-width:600px) {
-    font-size:14px;
-  }
-}
-
-.author {
-  font-weight: 300;
-  font-size:15px;
-  @media (max-width:600px) {
-    font-size:12px;
-  }
-}
 </style>
