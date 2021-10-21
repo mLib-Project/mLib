@@ -1,12 +1,12 @@
 <template>
-  <router-link :style="{backgroundColor: '#' + colors[item.family]}">
+  <a :style="{backgroundColor: '#' + colors[item.family]}" :href="item.source">
     <div>
       {{item.name}}
       <span>
         {{item.author}}
       </span>
     </div>
-  </router-link>
+  </a>
 </template>
 
 <script lang="ts">
@@ -19,7 +19,13 @@ export default defineComponent({
     return {
       colors
     }
+  },
+  methods: {
+    hrefMe () {
+      console.log('a')
+    }
   }
+  
 })
 </script>
 

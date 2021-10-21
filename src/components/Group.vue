@@ -7,7 +7,6 @@
     <Book
     v-for="item in family" 
     :key="item"
-    :to="'/books/' + item.ID"
     :item="item"
     />
   </div>

@@ -1,7 +1,6 @@
 <template>
     <footer>
-      Wszelkie materiały pochodzą ze strony <a href="https://docer.pl">Docer.pl</a> lub darmowych źródeł. Na podstawie punktu 6.3 regulaminu tej strony, wszelkie treści publikowane na tej platformie są wolne od jakichkolwiek roszczeń podmiotów trzecich oraz, a publicystom przysługują majątkowe prawa autorskie do treści, które nie są ograniczone na rzecz żadnej osoby trzeciej.
-      Linki do źródeł dostępne są w plikach źródłowych wszystkich książek (Github) lub wchodząc w ten <a href="/sources.txt">link</a>.
+      Żaden plik nie jest przechowywany na serwerze. Wszelkie linki stanowią jedynie przekierowanie na inne witryny, z których pliki są pobierane. Autor strony nie ponosi odpowiedzialności za naruzenia praw autorskich popełnione przez osoby trzecie.
     </footer>
 </template>
 
