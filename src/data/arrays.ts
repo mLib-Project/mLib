@@ -9,7 +9,7 @@ export const families:string[] = [
 export const colors:string[] = [
     "545454",
     "2687a1", 
-    "009b00", 
+    "8d677f", 
     "dbaa27", 
     "C30000"
 ]
